@@ -17,7 +17,7 @@ The solution employs **Ensemble Learning**, **Principal Component Analysis (PCA)
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/cyruszhang36969-stack/project-for-data-science-2025.git]
+    git clone https://github.com/cyruszhang36969-stack/project-for-data-science-2025.git
     cd project-for-data-science-2025
     ```
 
