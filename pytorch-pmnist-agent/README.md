@@ -17,7 +17,7 @@ The solution employs **Ensemble Learning**, **Principal Component Analysis (PCA)
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+    git clone [https://github.com/cyruszhang36969-stack/project-for-data-science-2025.git]
     cd your-repo-name
     ```
 
@@ -42,5 +42,5 @@ The core benchmarking logic is located in the `experiments` module.
 Execute the unified benchmark script to compare the **Optimized Agent** against the **Baseline Runner**, tracking time, accuracy, and peak memory usage.
 
 ```bash
-# Must be run from the repository root (your_repo/)
+# Must be run from the repository root (project-for-data-science-2025/)
 python -m experiments.run_benchmarks
