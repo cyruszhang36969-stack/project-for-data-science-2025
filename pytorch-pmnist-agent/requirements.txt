@@ -1,1 +1,3 @@
-
+numpy
+torch
+scikit-learn # for local deployment and evaluaton MNIST
