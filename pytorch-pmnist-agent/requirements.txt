@@ -1,3 +1,4 @@
 numpy
 torch
 scikit-learn # for local deployment and evaluaton MNIST
+psutil # Added for resource monitoring
