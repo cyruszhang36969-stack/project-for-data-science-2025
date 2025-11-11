@@ -1,27 +1,62 @@
 [build-system]
+# Setuptools 是用于构建包的核心工具
 requires = ["setuptools>=61.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ml-arena-pmnist"
+name = "ml-arena-pmnist" 
 version = "0.1.0"
-description = "High-performance PyTorch agents for Permuted MNIST competition."
-authors = [
-    {name = "Your Name", email = "your.email@example.com"}
-]
-license = {file = "LICENSE"}
+description = "High-performance PyTorch agents for ML-Arena Permuted MNIST Competition."
 readme = "README.md"
 requires-python = ">=3.8"
+
+# --- [YOUR INPUT] ---
+authors = [
+    {name = "cyruszhang36969-stack", email = "cyruszhang36969@gmail.com"}
+]
+# 使用 SPDX 许可标识符，例如 "MIT" 或 "Apache-2.0"
+# 注意：你的项目中可能缺少 LICENSE 文件，但填写标识符是最佳实践。
+license = "MIT" 
+# --- [END INPUT] ---
+
+# 项目运行所需的主要依赖项
 dependencies = [
     "torch",
     "numpy",
     "scikit-learn",
-    "tabulate"
+    "tabulate",
+    "psutil",      # 用于资源监控
+    "matplotlib",  # 用于绘图
+    "pandas",      # 用于数据处理和绘图
 ]
 
 [project.optional-dependencies]
+# 开发和测试环境所需的额外依赖
 dev = [
     "pytest",
     "black",
     "isort"
 ]
+
+# ======================================================================
+# --- 解决构建错误的 CRITICAL PART: 显式定义包 ---
+# 这部分解决了 "Multiple top-level packages discovered" 的错误，
+# 确保只安装包含 Python 代码的目录。
+# ======================================================================
+[tool.setuptools]
+# 明确告诉 Setuptools 哪些目录是 Python 包。
+# 排除 notebooks/ 和 tests/
+packages = [
+    "models",
+    "experiments",
+    "utils",
+    # 注意：如果你的 tests/ 文件夹也包含 __init__.py，
+    # 并且你想安装它，你需要取消注释下一行。
+    # "tests" 
+]
+
+# 如果你的项目需要安装 test 文件夹，但它不是一个可导入的包，
+# 并且你不想让它干扰包发现，可以考虑使用 find-package 替代 packages=[]
+# [tool.setuptools.packages.find]
+# where = ["."]
+# exclude = ["notebooks*", "tests*"]
